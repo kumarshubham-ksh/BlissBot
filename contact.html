@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bliss Bot</title>
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+          <a class="navbar-brand" href="index.html">
+            <div class="logo-image">
+                <img src="logo.png" class="img-fluid">
+            </div>
+          </a>
+          <a href="index.html" class="logo">Bliss Bot</a>
+          <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+          <div class="nav__link hide">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </nav>
+      </header>
+      <section class="form-sec">
+        <form method="POST" name="bookAppointment" class="contact-form">
+            <h1>Contact Us</h1>
+            <h2>Have something to tell us? Send us a message in just one click!</h2>
+            <label for="fname" class="entity"><b>Name:&ensp;</b></label>
+            <input id="fname" placeholder="Enter your first name" class="entity" type="text" name="fname" required />
+            <input id="lname" placeholder="Enter your last name" class="entity" type="text" name="lname" required />
+            <br><br>
+            <label for="contact" class="entity"><b>Contact Number:&ensp;</b></label>
+            <input id="contact" class="entity" placeholder="Enter your contact number" type="tel" name="contact" required />
+            <br><br>
+            <label for="email" class="entity"><b>Email ID:&ensp;</b></label>
+            <input id="email" class="entity" placeholder="Enter your email ID" type="email" name="email" required />
+            <br><br>
+            <label for="message" class="entity"><b>Your Message:&ensp;</b></label>
+            <input id="message" class="entity" placeholder="Enter your message" type="text" name="message" required />
+            <br><br><br>
+            <button type="button" class="submit-button" role="button" name="submit" onclick="return Send();">Send Message</button>
+        </form>
+    </section>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function Send(){
+            var fn=document.getElementById("fname").value;
+            var ln=document.getElementById("lname").value;
+            var c=document.getElementById("contact").value;
+            var e=document.getElementById("email").value;
+            var me=document.getElementById("message").value;
+            if (fn === "" || ln === "" || c === "" || e === "" || me === "") {
+                swal("Error", "Please fill in all required fields.", "error");
+                return false;
+            }
+            var body="First Name: "+fn+"<br> Last Name: "+ln+"<br> Contact Number: "+c+"<br> Email ID: "+e+"<br> Message: "+me;
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "theksbrosofficial@gmail.com",
+                Password : "E3417F687C3C4345A55E7B1AC54E5367FAEF",
+                To : 'umangtarang.ut@gmail.com',
+                From : 'theksbrosofficial@gmail.com',
+                Subject : "New Message",
+                Body : body
+            }).then(
+              message =>{
+                  if(message=="OK"){
+                      swal("Successful", "Your message has been sent successfully!", "success");
+                  }
+              }
+            );
+        }
+    </script>
+      <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="about.html">About</a></li>
+          <li class="menu__item"><a class="menu__link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="footer-text">Made with ❤️ by Kumar Shubham & Kumar Satyam</div>
+      </footer>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <div class="chat-bar-collapsible">
+      <button id="chat-button" type="button" class="collapsible">We are here to help!
+          <i id="chat-icon" style="color: white;" class="fa fa-fw fa-comments-o"></i>
+      </button>
+      <div class="content">
+          <div class="full-chat-block">
+              <div class="outer-container">
+                  <div class="chat-container">
+                      <div id="chatbox">
+                          <h5 id="chat-timestamp"></h5>
+                          <p id="botStarterMessage1" class="botText"><span>Loading...</span></p>
+                          <p id="botStarterMessage2" class="botText"><span>Loading...</span></p>
+                      </div>
+                      <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <input id="textInput" class="input-box" type="text" name="msg"
+                                  placeholder="Type your message here">
+                              <p></p>
+                          </div>
+                          <div class="chat-bar-icons">
+                              <i id="chat-icon" style="color: red;" class="fa fa-fw fa-heart"
+                                  onclick="heartButton()"></i>
+                              <i id="chat-icon" style="color: blue;" class="fa fa-fw fa-send"
+                                  onclick="sendButton()"></i>
+                          </div>
+                      </div>
+                      <div id="chat-bar-bottom">
+                          <p></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+<script src="static\scripts\script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static/scripts/responses.js"></script>
+<script src="static/scripts/chat.js"></script>
+</html>
