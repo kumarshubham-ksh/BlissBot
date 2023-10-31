@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bliss Bot</title>
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav">
+          <a class="navbar-brand" href="index.html">
+            <div class="logo-image">
+                <img src="logo.png" class="img-fluid">
+            </div>
+          </a>
+          <a href="index.html" class="logo">Bliss Bot</a>
+          <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+          <div class="nav__link hide">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </nav>
+      </header>
+      <section class="about-us">
+        <div class="about">
+          <img src="about-img.jpg" class="pic">
+          <div class="text-about">
+            <h2>About Us</h2>
+            <h5>Full-stack Developers</h5>
+              <p>Meet our dynamic duo of full stack developers, Kumar Shubham and Kumar Satyam. With a shared passion for creating innovative digital solutions, they form the backbone of our tech team. Shubham and Satyam bring a wealth of experience and expertise to the table, crafting seamless and responsive web applications from front-end to back-end. Their proficiency in a wide array of programming languages and frameworks enables them to tackle diverse projects with precision. But what truly sets them apart is their dedication to staying on the cutting edge of technology, ensuring your projects are always at the forefront of industry standards. Trust Shubham and Satyam to turn your vision into a digital reality.</p>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="about.html">About</a></li>
+          <li class="menu__item"><a class="menu__link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="footer-text">Made with ❤️ by Kumar Shubham & Kumar Satyam</div>
+      </footer>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <div class="chat-bar-collapsible">
+      <button id="chat-button" type="button" class="collapsible">We are here to help!
+          <i id="chat-icon" style="color: white;" class="fa fa-fw fa-comments-o"></i>
+      </button>
+      <div class="content">
+          <div class="full-chat-block">
+              <div class="outer-container">
+                  <div class="chat-container">
+                      <div id="chatbox">
+                          <h5 id="chat-timestamp"></h5>
+                          <p id="botStarterMessage1" class="botText"><span>Loading...</span></p>
+                          <p id="botStarterMessage2" class="botText"><span>Loading...</span></p>
+                      </div>
+                      <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <input id="textInput" class="input-box" type="text" name="msg"
+                                  placeholder="Type your message here">
+                              <p></p>
+                          </div>
+                          <div class="chat-bar-icons">
+                              <i id="chat-icon" style="color: red;" class="fa fa-fw fa-heart"
+                                  onclick="heartButton()"></i>
+                              <i id="chat-icon" style="color: blue;" class="fa fa-fw fa-send"
+                                  onclick="sendButton()"></i>
+                          </div>
+                      </div>
+                      <div id="chat-bar-bottom">
+                          <p></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+<script src="static\scripts\script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="static/scripts/responses.js"></script>
+<script src="static/scripts/chat.js"></script>
+</html>
